@@ -32,7 +32,7 @@ main{
 }
 
 /* Destellos animados */
-.footer-animado #destello {
+.footer-animado #destello  {
   position: absolute;
   top: 50%;
   left: -60px;
