@@ -53,6 +53,7 @@ main{
   width: 80px;
   opacity: 0.5;
 }
+  
 
 .footer-animado #destello:nth-child(3) {
   animation-delay: 2s;
