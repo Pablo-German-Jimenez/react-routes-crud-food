@@ -3,7 +3,7 @@
 const Inicio = () => {
     return (
         <div>
-            <h1>pagina inicio</h1>
+            <h1 className="text-warning">pagina inicio</h1>
         </div>
     );
 };
