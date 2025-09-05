@@ -1,9 +1,9 @@
-import React from 'react';
+
 
 const Login = () => {
     return (
         <div>
-            <h1>Loginboy :P</h1>
+            <h1 className='success'>Loginboy :P</h1>
         </div>
     );
 };
