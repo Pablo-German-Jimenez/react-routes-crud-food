@@ -1,11 +1,28 @@
+import { Card, Button, Row, Col } from "react-bootstrap";
 
 
 const Login = () => {
-    return (
-        <div>
-            <h1 className='success'>Loginboy :P</h1>
-        </div>
-    );
+  return (
+    <div>
+      <Row xs={1} md={2}>
+        <Col>
+          <Card>
+            <Card.Body>
+              <Card.Title>Card Title</Card.Title>
+              <Card.Text>
+                Some quick example text to build on the card title and make up
+                the bulk of the card's content.
+              </Card.Text>
+              <Button variant="primary">Go somewhere</Button>
+            </Card.Body>
+          </Card>
+        </Col>
+        <Col>
+          <img src="./empanaditas.jpeg "alt="Empanaditas" className="container-fluid" />
+        </Col>
+      </Row>
+    </div>
+  );
 };
 
 export default Login;
