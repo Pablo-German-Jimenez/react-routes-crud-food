@@ -14,10 +14,10 @@ import FormularioProducto from "./components/pages/products/FormularioProducto";
 function App() {
   return (
     <>
-      <main>
-        <BrowserRouter>
-          <MenuNavBar></MenuNavBar>
-          <Routes>
+    <BrowserRouter>
+    <MenuNavBar></MenuNavBar>
+      <main className="container my-3">
+           <Routes>
             <Route path="/Inicio" element={<Inicio></Inicio>} />
             <Route
               path="/detalle-producto"
@@ -30,8 +30,8 @@ function App() {
             <Route path="administrador/editar" element={<FormularioProducto></FormularioProducto>}></Route>
           </Routes>
           <Footer></Footer>
-        </BrowserRouter>
-      </main>
+        </main>
+      </BrowserRouter>
       <FooterBboyLinkinStyle></FooterBboyLinkinStyle>
     </>
   );
