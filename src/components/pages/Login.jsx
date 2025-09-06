@@ -1,6 +1,10 @@
 import { Card, Button, Row, Col, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-const Login = () => {
+import Swal from "sweetalert2";
+
+
+
+const Login = (setUsuarioLogueado) => {
   const {
     register,
     handleSubmit,
@@ -9,6 +13,17 @@ const Login = () => {
 
   const onSubmit = (data) => {
     console.log(data);
+    if(data.email === import.meta.env.VITE_API_EMAIL && data.password === import.meta.env.VITE_API_PASSWORD){
+      console.log(" user correct!")
+      //redireccionar a la pagina del administrador
+      setUsuarioLogueado(true)
+    }else{
+      Swal.fire({
+  title: "Incorrect user!",
+  text: "You clicked the button!",
+  icon: "warning"
+});
+    }
   };
 
   return (
