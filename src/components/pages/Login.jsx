@@ -13,10 +13,10 @@ const Login = () => {
 
   return (
     <div>
-      <Row xs={1} md={2}>
-        <Col>
-          <Card>
-            <Card.Body>
+      <Row xs={1} md={2} >
+        <Col >
+          <Card className="border border-secondary">
+            <Card.Body className="border border-secondary">
               <Form onSubmit={handleSubmit(onSubmit)}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Email address</Form.Label>
@@ -24,7 +24,7 @@ const Login = () => {
                     type="email"
                     placeholder="Enter email"
                     {...register("email", {
-                      required: "required email",
+                      required: "eeeh",
                       pattern: {
                         value:
                           /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
@@ -60,11 +60,11 @@ const Login = () => {
             </Card.Body>
           </Card>
         </Col>
-        <Col>
+        <Col >
           <img
             src="./empanaditas.jpeg "
             alt="Empanaditas"
-            className="w-100 h-75"
+            className="w-100 h-75  border rounded-3"
           />
         </Col>
       </Row>
