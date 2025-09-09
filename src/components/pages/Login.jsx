@@ -1,7 +1,7 @@
 import { Card, Button, Row, Col, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
-
 
 
 const Login = ({setUsuarioLogueado}) => {
@@ -10,6 +10,8 @@ const Login = ({setUsuarioLogueado}) => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const navigate = useNavigate()
 
   const onSubmit = (data) => {
     console.log(data);
@@ -22,6 +24,7 @@ const Login = ({setUsuarioLogueado}) => {
 });
       //redireccionar a la pagina del administrador
       setUsuarioLogueado(true)
+      navigate('/Administrador')
     }else{
       Swal.fire({
   title: "Incorrect user!",
