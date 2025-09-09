@@ -1,6 +1,10 @@
 import { Card, Button, Row, Col, Form } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-const Login = () => {
+import Swal from "sweetalert2";
+
+
+
+const Login = ({setUsuarioLogueado}) => {
   const {
     register,
     handleSubmit,
@@ -9,14 +13,31 @@ const Login = () => {
 
   const onSubmit = (data) => {
     console.log(data);
+    if(data.email === import.meta.env.VITE_API_EMAIL && data.password === import.meta.env.VITE_API_PASSWORD){
+      console.log(" user correct!")
+       Swal.fire({
+  title: "correct user!",
+  text: "You clicked the button!",
+  icon: "success"
+});
+      //redireccionar a la pagina del administrador
+      setUsuarioLogueado(true)
+    }else{
+      Swal.fire({
+  title: "Incorrect user!",
+  text: "Wrong entry!!",
+  icon: "warning"
+});
+console.log(`usuario no logueado`)
+    }
   };
 
   return (
     <div>
-      <Row xs={1} md={2}>
-        <Col>
-          <Card>
-            <Card.Body>
+      <Row xs={1} md={2} >
+        <Col >
+          <Card className="border border-secondary">
+            <Card.Body className="border border-secondary">
               <Form onSubmit={handleSubmit(onSubmit)}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                   <Form.Label>Email address</Form.Label>
@@ -24,7 +45,7 @@ const Login = () => {
                     type="email"
                     placeholder="Enter email"
                     {...register("email", {
-                      required: "required email",
+                      required: "eeeh",
                       pattern: {
                         value:
                           /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
@@ -60,11 +81,11 @@ const Login = () => {
             </Card.Body>
           </Card>
         </Col>
-        <Col>
+        <Col >
           <img
             src="./empanaditas.jpeg "
             alt="Empanaditas"
-            className="w-100 h-75"
+            className="w-100 h-75  border rounded-3"
           />
         </Col>
       </Row>
