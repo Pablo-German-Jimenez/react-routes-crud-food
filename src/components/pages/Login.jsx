@@ -24,7 +24,7 @@ const Login = ({setUsuarioLogueado}) => {
 });
       //redireccionar a la pagina del administrador
       setUsuarioLogueado(true)
-      navigate('/Administrador')
+      navigate('/Administrador')  
     }else{
       Swal.fire({
   title: "Incorrect user!",
@@ -49,6 +49,7 @@ console.log(`usuario no logueado`)
                     placeholder="Enter email"
                     {...register("email", {
                       required: "eeeh",
+                      maxLength:20,
                       pattern: {
                         value:
                           /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
@@ -67,7 +68,7 @@ console.log(`usuario no logueado`)
                     placeholder="Password"
                     {...register("password", {
                       required: "wrong password",
-                      maxLength: 10,
+                    maxLength: 10,
                       message: "excedeed the max length",
                     })}
                   />
