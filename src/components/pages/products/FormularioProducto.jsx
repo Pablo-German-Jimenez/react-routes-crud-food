@@ -1,10 +1,25 @@
+import {Form,Button} from "react-bootstrap"
+import { useForm } from "react-hook-form";
 
 
 const FormularioProducto = () => {
+
+    const{
+        register,
+        handleSubmit,
+        reset,
+        setValue,
+        formState:{errors},
+    } = useForm();
+
     return (
-        <div>
-            <h1 className='text-secondary'>Desde formulario producto!</h1>
-        </div>
+        <section className="container">
+            <h1 className="text-success">Crear producto</h1>
+            <Form>
+                
+            </Form>
+            <Button></Button>
+        </section>
     );
 };
 
