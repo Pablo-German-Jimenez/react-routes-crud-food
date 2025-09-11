@@ -13,14 +13,27 @@ import { useEffect, useState } from "react";
 import ProtectorAdmin from "./components/routes/ProtectorAdmin";
 
 function App() {
+  
   const sesionUsuario =
     JSON.parse(sessionStorage.getItem("usuarioKey")) || false;
-  const [usuarioLogueado, setUsuarioLogueado] = useState(sesionUsuario);
-  const [products,setProducts] = useState([])
+  
+    const productsLocalStorage =
+    JSON.parse(sessionStorage.getItem("productsKey")) || [];
+  
+    const [usuarioLogueado, setUsuarioLogueado] = useState(sesionUsuario);
+  
+    const [products, setProducts] = useState([productsLocalStorage]);
+  
+  
   useEffect(() => {
     sessionStorage.setItem("usuarioKey", JSON.stringify(usuarioLogueado)),
       [usuarioLogueado];
   });
+
+  useEffect(()=>{
+    localStorage.setItem("productsKey", JSON.stringify(products)),[products]
+  })
+
 
   return (
     <>
@@ -47,16 +60,22 @@ function App() {
                   usuarioLogueado={usuarioLogueado}
                 ></Administrador>
               }
-            ><Route index 
-            element={<Administrador products={products} setProducts={setProducts}></Administrador>}>
-              
-              </Route>
-              </Route>
+            >
+              <Route
+                index
+                element={
+                  <Administrador
+                    products={products}
+                    setProducts={setProducts}
+                  ></Administrador>
+                }
+              ></Route>
+            </Route>
             <Route
               path="crear"
               element={<ProtectorAdmin></ProtectorAdmin>}
             ></Route>
-            <Route path="*" element={<Error404></Error404>}></Route>
+            <Route path="*" element={<Error404 setUsuarioLogueado={setUsuarioLogueado}></Error404>}></Route>
             <Route
               path="editar"
               element={<FormularioProducto></FormularioProducto>}

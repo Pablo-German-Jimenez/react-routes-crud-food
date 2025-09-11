@@ -1,15 +1,50 @@
 import { Button } from "react-bootstrap";
-import productos from "../../data/productoPrueba";
+import { Link } from "react-router";
+import { Table } from "react-bootstrap";
+import productoPrueba from "../../data/productoPrueba";
 
-const Administrador = (products,setProducts) => {
+const Administrador = ({ products, setProducts }) => {
+  const cargarProductosPrueba = () => {
+    setProducts(productoPrueba);
+  };
 
-    const cargaProductosPrueba = setProducts(productos)
-    return (
+  return (
+    <>
+       <section className="container mainSection">
+      <div className="d-flex justify-content-between align-items-center mt-5">
+        <h1 className="display-4 ">Productos disponibles</h1>
         <div>
-            <h1>Pagina de Administrador</h1>
-            <Button variant="primary" className="storage" onClick={cargaProductosPrueba}></Button>
+          <Link className="btn btn-primary me-2" to={"/administrador/crear"}>
+            <i className="bi bi-file-earmark-plus"></i>
+          </Link>
+          <Button
+            variant="info"
+            className="text-light"
+            onClick={cargarProductosPrueba}
+          >
+            <i className="bi bi-database-fill-up"></i>
+          </Button>
+        
         </div>
-    );
+      </div>
+      </section>
+      <hr />
+      <Table responsive striped bordered hover variant="dark">
+        <thead>
+          <tr className="text-center">
+            <th>#</th>
+            <th>Producto</th>
+            <th>Precio</th>
+            <th>URL de Imagen</th>
+            <th>Categoria</th>
+            <th>Opciones</th>
+          </tr>
+        </thead>
+
+        <tbody></tbody>
+      </Table>
+    </>
+  );
 };
 
 export default Administrador;
