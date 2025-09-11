@@ -1,10 +1,10 @@
-import React from 'react';
 
-const Error404 = ({setUsuarioLogueado}) => {
+
+const Error404 = () => {
     return (
         <div>
             <h1 className="text-danger">Error 404 vieja del water</h1>
-            {setUsuarioLogueado(false)}
+           
         </div>
     );
 };

@@ -40,8 +40,9 @@ const Administrador = ({ products, setProducts }) => {
             <th>Opciones</th>
           </tr>
         </thead>
-
-        <tbody></tbody>
+        <tbody>
+        {}
+        </tbody>
       </Table>
     </>
   );

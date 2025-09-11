@@ -75,7 +75,7 @@ function App() {
               path="crear"
               element={<ProtectorAdmin></ProtectorAdmin>}
             ></Route>
-            <Route path="*" element={<Error404 setUsuarioLogueado={setUsuarioLogueado}></Error404>}></Route>
+            <Route path="*" element={<Error404></Error404>}></Route>
             <Route
               path="editar"
               element={<FormularioProducto></FormularioProducto>}

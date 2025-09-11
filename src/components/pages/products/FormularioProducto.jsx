@@ -5,9 +5,7 @@ const FormularioProducto = () => {
   const {
     register,
     handleSubmit,
-    reset,
-    setValue,
-    formState: { errors },
+ 
   } = useForm();
 
 const onSubmit=(data)=>{
