@@ -12,6 +12,8 @@ import FormularioProducto from "./components/pages/products/FormularioProducto";
 import { useEffect, useState } from "react";
 import ProtectorAdmin from "./components/routes/ProtectorAdmin";
 
+
+
 function App() {
   
   const sesionUsuario =

@@ -5,7 +5,7 @@ const FormularioProducto = () => {
   const {
     register,
     handleSubmit,
- 
+    formState:{errors},
   } = useForm();
 
 const onSubmit=(data)=>{
@@ -16,12 +16,12 @@ const onSubmit=(data)=>{
     <section className="container">
       <h1 className="text-success">Crear producto</h1>
       <Form onClick={handleSubmit(onSubmit)}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" 
-          {...register("email",{required:true})}/>
+        <Form.Group className="mb-3" controlId="formProduct">
+          <Form.Label>Product</Form.Label>
+          <Form.Control type="text" placeholder="Choice you product!" 
+          {...register("productName",{required:true, maxLength:{value:10, message:"Max 10 characters!"}})}/>
           <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
+            {errors.productName?.message}
           </Form.Text>
         </Form.Group>
 

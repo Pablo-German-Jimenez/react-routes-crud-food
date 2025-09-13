@@ -3,42 +3,44 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
 
-
-const Login = ({setUsuarioLogueado}) => {
+const Login = ({ setUsuarioLogueado }) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const onSubmit = (data) => {
     console.log(data);
-    if(data.email === import.meta.env.VITE_API_EMAIL && data.password === import.meta.env.VITE_API_PASSWORD){
-      console.log(" user correct!")
-       Swal.fire({
-  title: "correct user!",
-  text: "You clicked the button!",
-  icon: "success"
-});
-      //redireccionar a la pagina del administrador
-      setUsuarioLogueado(true)
-      navigate('/Administrador')  
-    }else{
+    if (
+      data.email === import.meta.env.VITE_API_EMAIL &&
+      data.password === import.meta.env.VITE_API_PASSWORD
+    ) {
+      console.log(" user correct!");
       Swal.fire({
-  title: "Incorrect user!",
-  text: "Wrong entry!!",
-  icon: "warning"
-});
-console.log(`usuario no logueado`)
+        title: "correct user!",
+        text: "You clicked the button!",
+        icon: "success",
+      });
+      //redireccionar a la pagina del administrador
+      setUsuarioLogueado(true);
+      navigate("/Administrador");
+    } else {
+      Swal.fire({
+        title: "Incorrect user!",
+        text: "Wrong entry!!",
+        icon: "warning",
+      });
+      console.log(`usuario no logueado`);
     }
   };
 
   return (
     <div>
-      <Row xs={1} md={2} >
-        <Col >
+      <Row xs={1} md={2}>
+        <Col>
           <Card className="border border-secondary">
             <Card.Body className="border border-secondary">
               <Form onSubmit={handleSubmit(onSubmit)}>
@@ -49,7 +51,7 @@ console.log(`usuario no logueado`)
                     placeholder="Enter email"
                     {...register("email", {
                       required: "eeeh",
-                      maxLength:20,
+                      maxLength: 20,
                       pattern: {
                         value:
                           /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
@@ -68,7 +70,7 @@ console.log(`usuario no logueado`)
                     placeholder="Password"
                     {...register("password", {
                       required: "wrong password",
-                    maxLength: 10,
+                      maxLength: 10,
                       message: "excedeed the max length",
                     })}
                   />
@@ -85,7 +87,7 @@ console.log(`usuario no logueado`)
             </Card.Body>
           </Card>
         </Col>
-        <Col >
+        <Col>
           <img
             src="./empanaditas.jpeg "
             alt="Empanaditas"
