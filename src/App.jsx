@@ -39,16 +39,16 @@ function App() {
 
   return (
     <>
-      <BrowserRouter>
+      <BrowserRouter>//Administrador de rutas//continuar con clase del 2 de septiembre 
         <MenuNavBar
           usuarioLogueado={usuarioLogueado}
           setUsuarioLogueado={setUsuarioLogueado}
         ></MenuNavBar>
         <main className="container my-3">
-          <Routes>
+          <Routes> //Lista de rutas
             <Route path="/Inicio" element={<Inicio></Inicio>} />
             <Route
-              path="/detalle-producto"
+              path="detalleproducto"
               element={<DetalleProducto></DetalleProducto>}
             ></Route>
             <Route

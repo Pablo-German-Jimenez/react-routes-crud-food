@@ -18,6 +18,10 @@ const Login = ({ setUsuarioLogueado }) => {
       data.email === import.meta.env.VITE_API_EMAIL &&
       data.password === import.meta.env.VITE_API_PASSWORD
     ) {
+
+      //Aqui logueo el usuario
+      //1-actualizar el estado
+      //2-redericcionar a la pagina  del administrador
       console.log(" user correct!");
       Swal.fire({
         title: "correct user!",
@@ -27,6 +31,7 @@ const Login = ({ setUsuarioLogueado }) => {
       //redireccionar a la pagina del administrador
       setUsuarioLogueado(true);
       navigate("/Administrador");
+      
     } else {
       Swal.fire({
         title: "Incorrect user!",
@@ -50,7 +55,7 @@ const Login = ({ setUsuarioLogueado }) => {
                     type="email"
                     placeholder="Enter email"
                     {...register("email", {
-                      required: "eeeh",
+                      required: "eeeh no dejes el campo vacio reyy",
                       maxLength: 20,
                       pattern: {
                         value:
